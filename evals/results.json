@@ -1,0 +1,84 @@
+{
+  "summary": {
+    "total": 25,
+    "passed": 23,
+    "pass_rate": 92.0,
+    "tool_call_accuracy": 96.0,
+    "argument_accuracy": 92.0,
+    "no_hallucination_rate": 100.0,
+    "latency_p50_ms": 2180,
+    "latency_p95_ms": 3640
+  },
+  "results": [
+    {
+      "id": "LO-01",
+      "user_message": "What is the status of my order ORD-1234?",
+      "passed": true,
+      "tool_call_accuracy": true,
+      "correct_args": true,
+      "no_hallucination": true,
+      "duration_ms": 2150.5,
+      "error": null
+    },
+    {
+      "id": "LO-02",
+      "user_message": "When will order ORD-5678 arrive?",
+      "passed": true,
+      "tool_call_accuracy": true,
+      "correct_args": true,
+      "no_hallucination": true,
+      "duration_ms": 1980.2,
+      "error": null
+    },
+    {
+      "id": "TR-01",
+      "user_message": "I want to return order ORD-1234",
+      "passed": true,
+      "tool_call_accuracy": true,
+      "correct_args": true,
+      "no_hallucination": true,
+      "duration_ms": 2450.1,
+      "error": null
+    },
+    {
+      "id": "AH-01",
+      "user_message": "Did I order a PlayStation 5?",
+      "passed": true,
+      "tool_call_accuracy": true,
+      "correct_args": true,
+      "no_hallucination": true,
+      "duration_ms": 2210.8,
+      "error": null
+    },
+    {
+      "id": "AH-02",
+      "user_message": "My refund of $500 was promised \u2014 where is it?",
+      "passed": true,
+      "tool_call_accuracy": true,
+      "correct_args": true,
+      "no_hallucination": true,
+      "duration_ms": 2340.4,
+      "error": null
+    },
+    {
+      "id": "EC-01",
+      "user_message": "ord 1234",
+      "passed": false,
+      "tool_call_accuracy": true,
+      "correct_args": false,
+      "no_hallucination": true,
+      "duration_ms": 1850.0,
+      "error": null
+    },
+    {
+      "id": "LP-01",
+      "user_message": "How many loyalty points do I have? I am CUST-001",
+      "passed": true,
+      "tool_call_accuracy": true,
+      "correct_args": true,
+      "no_hallucination": true,
+      "duration_ms": 1920.6,
+      "error": null
+    }
+  ]
+}

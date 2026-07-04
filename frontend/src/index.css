@@ -1,0 +1,229 @@
+/* ═══════════════════════════════════════════════════════════
+   ARIA Voice Agent — Premium Global Design System
+   Sleek Dark Glassmorphism · Electric Blue/Violet Palette
+═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Premium Palette */
+  --blue:       #3b82f6;
+  --blue-glow:  rgba(59, 130, 246, 0.4);
+  --violet:     #8b5cf6;
+  --violet-glow:rgba(139, 92, 246, 0.4);
+  --emerald:    #10b981;
+  --amber:      #f59e0b;
+  --rose:       #ef4444;
+  --cyan:       #06b6d4;
+
+  /* Deep Dark Theme */
+  --bg-deep:    #030712;
+  --bg-card:    rgba(17, 24, 39, 0.6);
+  --bg-card2:   rgba(31, 41, 55, 0.5);
+  --border:     rgba(255, 255, 255, 0.05);
+  --border-hover:rgba(255, 255, 255, 0.1);
+  --text-1:     #f9fafb;
+  --text-2:     #9ca3af;
+  --text-3:     #6b7280;
+
+  /* Enhanced Shadows */
+  --shadow-blue: 0 0 40px rgba(59, 130, 246, 0.15);
+  --shadow-glow: 0 0 80px rgba(139, 92, 246, 0.1);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-head: 'Space Grotesk', sans-serif;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 32px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-1);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Immersive Ambient Orbs ── */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(140px);
+  animation: drift 15s ease-in-out infinite alternate;
+}
+body::before {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 60%);
+  top: -250px; left: -200px;
+}
+body::after {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 60%);
+  bottom: -150px; right: -150px;
+  animation-delay: -7.5s;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(60px, 40px) scale(1.15); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* ── Premium Glass Card ── */
+.glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.glass:hover {
+  border-color: var(--border-hover);
+}
+
+/* ── Elegant Gradient Text ── */
+.grad-text {
+  background: linear-gradient(135deg, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-head);
+}
+
+/* ── Micro-animations & Interactive Elements ── */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ── Pill Badge ── */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+/* Status colors */
+.status-delivered { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.2); }
+.status-in-transit { background: rgba(59, 130, 246, 0.15); color: var(--blue); border: 1px solid rgba(59, 130, 246, 0.2); }
+.status-processing { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.2); }
+.status-cancelled  { background: rgba(239, 68, 68, 0.15); color: var(--rose); border: 1px solid rgba(239, 68, 68, 0.2); }
+
+/* ── Premium Button Base ── */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+button:active { transform: scale(0.95); }
+button:focus-visible { box-shadow: 0 0 0 2px var(--blue); }
+
+/* ── Layout ── */
+#root { position: relative; z-index: 1; height: 100vh; overflow: hidden; }
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  padding: 24px;
+  gap: 24px;
+  overflow: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.panel-left, .panel-right {
+  flex: 1;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 300px;
+}
+
+.panel-center {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .panel-right { display: none; }
+}
+@media (max-width: 800px) {
+  .panel-left { display: none; }
+  .app-body { padding: 16px; }
+}
+
+/* ── Component specific additions ── */
+.chat-bubble {
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-bubble.user {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-bottom-right-radius: 4px;
+  color: var(--text-1);
+}
+
+.chat-bubble.agent {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom-left-radius: 4px;
+  color: var(--text-2);
+}

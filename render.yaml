@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: aria-voice-agent
+    env: docker
+    dockerfilePath: Dockerfile
+    autoDeploy: false
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: AGENT_NAME
+        value: ARIA
+      - key: BRAND_NAME
+        value: NovaMart
+    healthCheckPath: /api/health
