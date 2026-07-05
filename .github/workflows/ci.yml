@@ -78,5 +78,5 @@ jobs:
             -p 8001:8000 \
             aria-voice-agent:ci
           sleep 5
-          curl -f http://localhost:8001/api/health || exit 1
+          curl -f http://localhost:8001/api/health || (echo "Curl failed! Printing container logs:" && docker logs aria-test && exit 1)
           docker stop aria-test
