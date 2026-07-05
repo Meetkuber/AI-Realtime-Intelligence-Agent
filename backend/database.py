@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import random
 import sqlite3
 import string
@@ -21,7 +22,14 @@ import httpx
 
 logger = logging.getLogger(__name__)
 
-DB_PATH = Path(__file__).parent.parent / "aria.db"
+DB_PATH = os.getenv("DB_PATH", str(Path(__file__).parent.parent / "aria.db"))
+
+
+def _ensure_db_directory() -> None:
+    """Create the parent directory for the SQLite database if needed."""
+    db_dir = os.path.dirname(DB_PATH)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
 
 # ─────────────────────────────────────────────────────────────
 # Schema
@@ -164,6 +172,7 @@ SEED_CUSTOMERS = [
 
 @contextmanager
 def get_db():
+    _ensure_db_directory()
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
