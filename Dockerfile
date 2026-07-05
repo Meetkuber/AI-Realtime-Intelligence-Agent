@@ -32,7 +32,8 @@ COPY evals/ ./evals/
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
 # Non-root user
-RUN useradd -m -u 1001 aria
+RUN useradd -m -u 1001 aria 
+RUN chown -R aria:aria /app
 USER aria
 
 # SQLite DB will be created at runtime in /app/aria.db
